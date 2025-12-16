@@ -34,7 +34,7 @@
 ##  功能
 
 ### 1. 主界面 - 图书列表
-![主界面](booksystem screenshot.png)
+![主界面](/booksystem%20screenshot.png)
 *图书管理系统主界面，展示所有图书信息*
 
 ### 2. 添加图书
