@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理系统</title>
+    <style>
+        body { font-family: Arial; max-width: 1000px; margin: 20px auto; padding: 20px; background: #f5f5f5; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .form-group { margin: 15px 0; padding: 15px; background: white; border-radius: 5px; }
+        input, button { padding: 10px; margin: 5px; border: 1px solid #ddd; border-radius: 3px; }
+        button { background: #4CAF50; color: white; border: none; cursor: pointer; font-size: 14px; }
+        button:hover { background: #45a049; }
+        .delete-btn { background: #f44336; }
+        .delete-btn:hover { background: #da190b; }
+        .search-box { display: flex; gap: 10px; }
+        h1 { color: #333; }
+        h3 { color: #4CAF50; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📚 图书管理系统</h1>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="搜索书名/作者">
+            <button onclick="searchBooks()">搜索</button>
+            <button onclick="loadBooks()" style="background: #2196F3;">显示全部</button>
+        </div>
+    </div>
+
+    <!-- 添加图书表单 -->
+    <div class="form-group">
+        <h3>添加新书</h3>
+        <div>
+            <input type="text" id="title" placeholder="书名" required>
+            <input type="text" id="author" placeholder="作者" required>
+            <input type="text" id="isbn" placeholder="ISBN">
+            <input type="number" id="price" placeholder="价格" step="0.01">
+            <button onclick="addBook()">添加图书</button>
+        </div>
+    </div>
+
+    <!-- 状态提示 -->
+    <div id="status"></div>
+
+    <!-- 图书列表 -->
+    <h3>图书列表</h3>
+    <table id="bookTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>ISBN</th>
+                <th>价格</th>
+                <th>添加时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 数据动态加载 -->
+        </tbody>
+    </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
